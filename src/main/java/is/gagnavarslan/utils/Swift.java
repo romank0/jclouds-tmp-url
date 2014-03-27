@@ -39,15 +39,21 @@ public class Swift {
 			
 			System.out.println("temp URL=" + request.getEndpoint());
 
+			long sleepInterval = Long.parseLong(properties.getProperty("sleep"));
+			System.out.print(String.format("sleeping for %d seconds", sleepInterval));
+			Thread.sleep(sleepInterval * 1000L);
+			
 			request = blobStore
 					.getContext()
 					.getSigner()
 					.signGetBlob(properties.getProperty("container"),
-							properties.getProperty("blob_id2"),
+							properties.getProperty("blob_id"),
 							Long.parseLong(properties.getProperty("timeout")));
 			
 			System.out.println("temp URL=" + request.getEndpoint());
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} finally {
 			
