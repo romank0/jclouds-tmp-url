@@ -38,6 +38,15 @@ public class Swift {
 							Long.parseLong(properties.getProperty("timeout")));
 			
 			System.out.println("temp URL=" + request.getEndpoint());
+
+			request = blobStore
+					.getContext()
+					.getSigner()
+					.signGetBlob(properties.getProperty("container"),
+							properties.getProperty("blob_id"),
+							Long.parseLong(properties.getProperty("timeout")));
+			
+			System.out.println("temp URL=" + request.getEndpoint());
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
