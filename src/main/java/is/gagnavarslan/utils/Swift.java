@@ -43,7 +43,7 @@ public class Swift {
 					.getContext()
 					.getSigner()
 					.signGetBlob(properties.getProperty("container"),
-							properties.getProperty("blob_id"),
+							properties.getProperty("blob_id2"),
 							Long.parseLong(properties.getProperty("timeout")));
 			
 			System.out.println("temp URL=" + request.getEndpoint());
