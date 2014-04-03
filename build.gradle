@@ -2,7 +2,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin:'application'
+apply plugin: 'application'
 
 repositories {
     mavenCentral()
@@ -15,6 +15,11 @@ dependencies {
 }
 
 mainClassName = "is.gagnavarslan.utils.Swift"
+
+run {
+    // uncomment to debug
+    // jvmArgs "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005"
+}
 
 task wrapper(type: Wrapper) {
     gradleVersion = '1.10'
